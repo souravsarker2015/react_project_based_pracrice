@@ -1,18 +1,38 @@
 import './App.css';
-import {Header} from "./components/Header";
-import {Footer} from "./components/Footer";
+import {useState} from "react";
+
 
 function App() {
+    const [count, setCount] = useState(0)
+    console.log(useState(0))
+
+    function handleAdd() {
+        setCount(count => count + 1)
+        setCount(count => count + 1)
+        setCount(count => count + 1)
+    }
+
+    function handleSub() {
+        if (count > 0) {
+            setCount(count - 1)
+        }
+    }
+
+    function handleReset() {
+        setCount(0)
+    }
 
     return (
-        <>
-            <Header/>
-            <div>
-                <h1>Hello React</h1>
+        <div className={'App'}>
+            <div className={'box'}>
+                <p>{count}</p>
+                <button onClick={handleAdd} className={'add'}>add</button>
+                <button onClick={handleSub} className={'sub'}>sub</button>
+                <button onClick={handleReset} className={'reset'}>reset</button>
+                <p>{count + 10}</p>
             </div>
-            <Footer/>
-        </>
 
+        </div>
     );
 
 }
