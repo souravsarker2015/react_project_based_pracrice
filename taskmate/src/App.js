@@ -1,57 +1,22 @@
 import './App.css';
-import {useState} from "react";
-
+import {Header} from "./components/Header";
+import {TaskList} from "./components/TaskList";
 
 // conditional template
 
 export function App() {
-    const [tasks, setTasks] = useState(
-        [
-            {id: 213, name: "hello react", completed: true},
-            {id: 234, name: "hello react1", completed: false},
-            {id: 444, name: "hello react2", completed: true},
-        ]
-    );
-
-    const [show, setShow] = useState(true)
-
-    function handleDelete(id) {
-        setTasks(tasks.filter(task => task.id !== id))
-        // setTasks(tasks.filter(function (task){
-        //     return task.id !== id;
-        // }))
-    }
+    let info = "hello buddy";
 
     return (
         <div className={'App'}>
-            <h1>Task List</h1>
-            <ul>
-                <button className={'trigger'} onClick={() => setShow(!show)}>toggle</button>
+            <Header/>
+            <TaskList info={info} title='Random' subtitle={'Test'}/>
 
-                {show && tasks.map((task) => (
-                        <li key={task.id} className={task.completed ? "completed" : 'incomplete'}>
-                            <span>{task.id} - {task.name} </span>
-                            <button onClick={() => handleDelete(task.id)} className={'delete'}>delete</button>
-                        </li>
-                    )
-                )}
-
-
-                {/*{tasks.map( function (task) {*/}
-                {/*        return (*/}
-                {/*            <li key={task.id}>*/}
-                {/*                <span>{task.id} - {task.name} </span>*/}
-                {/*                <button onClick={() => handleDelete(task.id)} className={'delete'}>delete</button>*/}
-                {/*            </li>*/}
-                {/*        )*/}
-                {/*    }*/}
-                {/*)}*/}
-            </ul>
         </div>
     );
 }
 
-export default App
+export default App;
 
 // export function App() {
 //     const [tasks, setTasks] = useState(
