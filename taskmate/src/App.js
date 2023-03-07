@@ -1,7 +1,7 @@
 import './App.css';
 import {Header} from "./components/Header";
 import {TaskList} from "./components/TaskList";
-
+import {Footer} from "./components/Footer";
 // conditional template
 
 export function App() {
@@ -11,7 +11,7 @@ export function App() {
         <div className={'App'}>
             <Header/>
             <TaskList info={info} title='Random' subtitle={'Test'}/>
-
+            <Footer/>
         </div>
     );
 }
