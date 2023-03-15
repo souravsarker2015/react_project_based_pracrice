@@ -6,7 +6,7 @@ import Loading from "../assets/loading.gif"
 export const ProductList = () => {
     // const [products, setProducts] = useState([])
     const [url, setUrl] = useState("http://localhost:8000/product")
-    const {data: products, loading} = UseFetch(url)
+    const {data: products, loading, error} = UseFetch(url)
 
 
     return (
@@ -19,7 +19,12 @@ export const ProductList = () => {
             {/*<img src={Loading} alt=""/>*/}
             {
                 loading && <p className={'loading'}>
-                    <img src={Loading} alt=""/>
+                    {error}
+                </p>
+            }
+            {
+                loading && <p>
+
                 </p>
             }
 
