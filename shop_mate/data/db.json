@@ -1,0 +1,22 @@
+{
+  "product": [
+    {
+      "id": 1001,
+      "name": "React Book2",
+      "price": 29,
+      "in_stock": true
+    },
+    {
+      "id": 1002,
+      "name": "React Book1",
+      "price": 88,
+      "in_stock": false
+    },
+    {
+      "id": 1003,
+      "name": "React Book3",
+      "price": 77,
+      "in_stock": true
+    }
+  ]
+}
