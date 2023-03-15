@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 export const ProductList = () => {
     const [products, setProducts] = useState([])
@@ -10,13 +10,15 @@ export const ProductList = () => {
     //     .then(data => console.log(data))
 
     // console.log(products)
-    useEffect(() => {
 
-        const fetchProducts = async () => {
+    const fetchProducts = useCallback(async () => {
             const response = await fetch(url)
             const data = await response.json()
             setProducts(data)
-        }
+        }, [url]
+    )
+
+    useEffect(() => {
         fetchProducts();
 
         // fetch(url)
@@ -24,7 +26,7 @@ export const ProductList = () => {
         //     .then(data => setProducts(data))
 
 
-    }, [url]);
+    }, [fetchProducts]);
 
     useEffect(() => {
         console.log(counter)
