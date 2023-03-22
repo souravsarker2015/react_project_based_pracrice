@@ -1,9 +1,11 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
-export const UseFetch = (url) => {
+export const UseFetch = (url, body_) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    const body = useRef(body_)
 
     useEffect(() => {
         const controller = new AbortController()
@@ -29,7 +31,7 @@ export const UseFetch = (url) => {
         }
         fetchData(url);
         return () => controller.abort()
-    }, [url]);
+    }, [url, body]);
 
     // return {data: data, loading: loading}
     return {data, loading, error}
